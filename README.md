@@ -1,0 +1,2 @@
+# ampexample
+example for AMP
