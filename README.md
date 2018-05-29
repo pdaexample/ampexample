@@ -1,2 +1,1 @@
-# ampexample
-example for AMP
+### All AMP Examples here
