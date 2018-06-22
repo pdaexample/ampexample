@@ -1,0 +1,35 @@
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <title>amp-form-suboption</title>
+  <link rel="canonical" href="https://www.example.com/url/to/canonical/document.html">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+  <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <style amp-custom>
+    amp-selector [selected]{
+      color: #7cbb00;
+    }
+  </style>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+  <form method="post" action-xhr="/form/submit" target="_top">
+    <span>Are you under 20?</span>
+    <amp-selector name="age">
+      <button type="button" option="20+" on="tap:beer.show,AMP.setState({'beer_disabled':false})">Yes</button>
+      <button type="button" option="20-" on="tap:beer.hide,AMP.setState({'beer_disabled':true})">No</button>
+    </amp-selector>
+    <div id="beer" hidden>
+      <span>Do you drink beer?</span>
+      <amp-selector name="beer">
+        <button type="button" option="yes" [disabled]="beer_disabled">Yes</button>
+        <button type="button" option="no" [disabled]="beer_disabled">No</button>
+      </amp-selector>
+    </div>
+  </form>
+</body>
+</html>
